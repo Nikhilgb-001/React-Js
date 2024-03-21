@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react'
 import { useForm } from "react-hook-form";
 
 function App() {
-
+  // userRef Hook
   // const name = useRef(null);
   // const age = useRef(null);
 
@@ -11,20 +11,21 @@ function App() {
   //   console.log(name.current.value, age.current.value);
   // }
 
-  {/* controlled form inputs */}
+  {/* controlled Components / form inputs */}
 
-  const [val, setVal] = useState({ name: "Nikhil", age: 22 })
+  // const [val, setVal] = useState({ name: "Nikhil", age: 22 })
 
-  const handelSubmit = (event)=> {
-    event.preventDefault();
-    console.log(val);
-  }
+  // const handelSubmit = (event)=> {
+  //   event.preventDefault();
+  //   console.log(val);
+  // }
 
 
   // react hook form
 
-  // const [register,handelSubmit] = useForm();
-  
+  const {register, handleSubmit} = useForm();
+
+  console.log(register);
 
   return (
     <>
@@ -34,21 +35,21 @@ function App() {
         <input type="submit" />
       </form> */}
 
-      {/* controlled form inputs */}
+      {/* controlled Components / form inputs */}
 
-      <form action="" className='p-4' onClick={handelSubmit}>
+      {/* <form action="" className='p-4' onClick={handelSubmit}>
         <input type="text" placeholder='Name' className='border-2' onChange={(event)=>setVal({...val, name: event.target.value})} />
         <input type="text" placeholder='Name' className='border-2' onChange={(event)=>setVal({...val, age: event.target.value})} />
         <input type="submit" />
-      </form>
+      </form> */}
 
       {/* react hook form */}
 
-      {/* <form action="" className='p-4' onClick={handelSubmit(data=>console.log(data))}>
+      <form action="" className='p-4' onClick={handleSubmit(data=>console.log(data))}>
         <input {...register('name')} type="text" placeholder='Name' className='border-2' />
-        <input {...register('name')} type="text" placeholder='Name' className='border-2' />
+        <input {...register('email')} type="email" placeholder='Email' className='border-2' />
         <input type="submit" />
-      </form> */}
+      </form>
 
 
     </>
